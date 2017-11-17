@@ -1,0 +1,30 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Videogames Codex</h1>
+    <p class="lead">Game List es una base de dato de games</p>
+    <p><a href="/crear/" class="btn btn-primary btn-large">New Game</a></p>
+    <p><a href="/ranking/" class="btn btn-primary btn-large">Ranking</a></p>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Publisher</th>
+        <th>Genre</th>
+    </tr>
+
+    {% for game in games %}
+    <tr>
+        <td>{{game.name}}</td>
+        <td>{{game.publisher}}</td>
+        <td>{{game.get_genre_display}}</td>
+        <td><a class="btn btn-success" href="/game/{{game.id}}">Show</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

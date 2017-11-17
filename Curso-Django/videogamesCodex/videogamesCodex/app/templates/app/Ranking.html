@@ -1,0 +1,27 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Ranking</h1>
+    <p class="lead">Lista de Ranking</p>
+
+</div>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Score</th>
+    </tr>
+
+    {% for game in rankings %}
+    <tr>
+        <td>{{game.name}}</td>
+        <td>{{game.score}}</td>
+        <td><a class="btn btn-success" href="/game/{{game.id}}">Show</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
